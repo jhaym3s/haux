@@ -15,13 +15,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     //final deviceSize = MediaQuery.of(context).size;
-    return Scaffold(appBar: AppBar(
-      backgroundColor: Colors.transparent,
-      title: Image.asset("assets/image/name.png"),
-      centerTitle: true,
-      elevation: 0,
-      ),
-      body:    SingleChildScrollView(
+    return
+        SingleChildScrollView(
         child: Column(
         children: const [
         SearchBar(),
@@ -29,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
         HorizontalList(),
         VerticalList()
         ],
-        ),
+        
       ),
       );
   }
