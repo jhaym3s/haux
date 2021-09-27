@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:haux/constants.dart';
 import 'package:haux/screens/favourite_screen.dart';
 import 'package:haux/screens/home_page.dart';
 import 'package:haux/screens/profile_screen.dart';
@@ -52,7 +53,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                 size: 30,
               ),
               activeIcon: Icon(CupertinoIcons.house_fill,size: 30),
-              label: "Haux",
+              label: appName,
               ),
           BottomNavigationBarItem(
               icon: Icon(
@@ -81,8 +82,8 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
          
         ],
         onTap: selectPage,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.black,
+        selectedItemColor: const Color(0xFFC69DFF),
+        unselectedItemColor: const Color(0xFF03040B),
         currentIndex: selectedPageIndex,
         type: BottomNavigationBarType.fixed,
       ),

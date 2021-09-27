@@ -8,6 +8,7 @@ import 'package:haux/screens/detail_page.dart';
 import 'package:haux/screens/filter_screen.dart';
 import 'package:haux/screens/forgot_password.dart';
 import 'package:haux/screens/screens.dart';
+import 'package:haux/constants.dart';
 import 'package:haux/widgets/custom_navigation_bar.dart';
 import 'package:provider/provider.dart';
 
@@ -28,14 +29,14 @@ class MyApp extends StatelessWidget {
          
       ],
       child: MaterialApp(
-        title: 'Haux.',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.grey,
-        ),
+        title: appName,
+      theme: AppTheme.light(),
+      debugShowCheckedModeBanner: false,
+      darkTheme: AppTheme.dark(),
+      themeMode: ThemeMode.light,
         home: const SplashScreen(),
         routes: {
-                  CustomNavigationBar.routeName :(context) => const CustomNavigationBar(),
+                CustomNavigationBar.routeName :(context) => const CustomNavigationBar(),
                  HomeScreen.routeName : (context) => const HomeScreen(),
                  FilterScreen.routeName:(context) => const FilterScreen(),
                  DetailsPage.routeName:(context) => const DetailsPage(),
