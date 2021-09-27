@@ -1,103 +1,102 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:haux/screens/screens.dart';
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
-
-
+import 'package:haux/constants.dart';
+import 'package:haux/screens/favourite_screen.dart';
+import 'package:haux/screens/home_page.dart';
+import 'package:haux/screens/profile_screen.dart';
+import 'package:haux/screens/roommate_request.dart';
 class CustomNavigationBar extends StatefulWidget {
-  static const routeName = "cusstomNavigationBar";
+  static const routeName = "customNavigationBar";
   const CustomNavigationBar({ Key? key }) : super(key: key);
   @override
   _CustomNavigationBarState createState() => _CustomNavigationBarState();
 }
 
 class _CustomNavigationBarState extends State<CustomNavigationBar> {
-  late PersistentTabController _pageController;
-  List<Widget> _children() {
-    return [
-      const HomeScreen(),
-      const FavouriteScreen(),
-      const ProfileScreen(),
-    ];
-  }
+  late List<Map<Object, Object>> pages;
 
-  List<PersistentBottomNavBarItem> _navBarsItems() {
-    return [
-      PersistentBottomNavBarItem(
-        icon: const Icon(CupertinoIcons.home),
-        title: ("Home"),
-        activeColorPrimary: Colors.purple,
-        inactiveColorPrimary: Colors.purple,
-      ),
-      PersistentBottomNavBarItem(
-        icon: const Icon(CupertinoIcons.doc_chart),
-        title: ("Result"),
-        activeColorPrimary:Colors.purple,
-        inactiveColorPrimary: Colors.purple,
-      ),
-      PersistentBottomNavBarItem(
-        icon: const Icon(CupertinoIcons.book),
-        title: ("Learning"),
-        activeColorPrimary: Colors.purple,
-        inactiveColorPrimary:Colors.purple,
-      ),
-     
-    ];
-  }
-
-  //List<Map<Object, Object>> pages;
-  //int selectedPageIndex = 0;
+  int selectedPageIndex = 0;
   void selectPage(int index) {
     setState(() {
-     // selectedPageIndex = index;
+      selectedPageIndex = index;
     });
   }
-
   @override
   void initState() {
-    _pageController = PersistentTabController(initialIndex: 0);
+    pages = [
+      {"pages": const HomeScreen(),
+        //how to add actions to a tap bar
+      },
+      {"pages": const FavouriteScreen(),
+      } ,
+      {"pages": const RoommatesRequest(),
+      },
+      {"pages": const ProfileScreen(),
+      },
+      /*
+      {"pages": Screen.Notification(),
+        "title": "Update",
+        "action": IconButton(icon: Icon(Icons.receipt_rounded), onPressed: (){}),
+      },
+       */
+    ];
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
-    
-    return SafeArea(
-      child: PersistentTabView(
-        context,
-        controller: _pageController,
-        screens: _children(),
-        items: _navBarsItems(),
-        confineInSafeArea: true,
-        backgroundColor: Colors.purple, // Default is Colors.white.
-        handleAndroidBackButtonPress: true, // Default is true.
-        resizeToAvoidBottomInset:
-            true, // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
-        stateManagement: true,
-        hideNavigationBarWhenKeyboardShows:
-            true, // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
-        decoration: const NavBarDecoration(
-          // borderRadius: BorderRadius.circular(10.0),
-          colorBehindNavBar: Colors.white,
-        ),
-        popAllScreensOnTapOfSelectedTab: true,
-    
-        popActionScreens: PopActionScreensType.once,
-        itemAnimationProperties: const ItemAnimationProperties(
-          // Navigation Bar's items animation properties.
-          duration: Duration(milliseconds: 200),
-          curve: Curves.ease,
-        ),
-        screenTransitionAnimation: const ScreenTransitionAnimation(
-          // Screen transition animation on change of selected tab.
-          animateTabTransition: true,
-          curve: Curves.ease,
-          duration: Duration(milliseconds: 200),
-        ),
-        navBarHeight: 11,
-        navBarStyle:
-            NavBarStyle.style6, // Choose the nav bar style with this property.
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items:   const [
+          BottomNavigationBarItem(
+              icon: Icon(
+                CupertinoIcons.house,
+                size: 30,
+              ),
+              activeIcon: Icon(CupertinoIcons.house_fill,size: 30),
+              label: appName,
+              ),
+          BottomNavigationBarItem(
+              icon: Icon(
+                CupertinoIcons.heart,
+                size: 30,
+              ),
+              activeIcon: Icon(CupertinoIcons.heart_fill, size: 30,),
+              label: "Favourite",
+              ),
+           BottomNavigationBarItem(
+              icon: Icon(
+                CupertinoIcons.group,
+                size: 30,
+              ),
+              activeIcon: Icon(CupertinoIcons.group_solid, size: 30,),
+              label: "Roommate request",
+              ),
+          BottomNavigationBarItem(
+              icon: Icon(
+                CupertinoIcons.person,
+                size: 30,
+              ),
+              activeIcon: Icon(CupertinoIcons.person_fill, size: 30,),
+              label: "Account",
+              ),
+         
+        ],
+        onTap: selectPage,
+        selectedItemColor: const Color(0xFFC69DFF),
+        unselectedItemColor: const Color(0xFF03040B),
+        currentIndex: selectedPageIndex,
+        type: BottomNavigationBarType.fixed,
       ),
+      //drawer: pages[selectedPageIndex]["actions"],
+      drawer: pages[selectedPageIndex]["drawer"] as Widget?,
+
+     appBar: AppBar(
+      backgroundColor: Colors.transparent,
+      title: Image.asset("assets/image/name.png"),
+      centerTitle: true,
+      elevation: 0,
+      ),
+      body: pages[selectedPageIndex]["pages"] as Widget?,
     );
   }
 }
