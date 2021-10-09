@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:haux/provider_state/agent_info_provider.dart';
+import 'package:haux/provider_state/landlord_info_provider.dart';
 import 'package:haux/provider_state/haux_info.dart';
-import 'package:haux/provider_state/info_provider.dart';
+import 'package:haux/provider_state/haux_info_provider.dart';
 import 'package:haux/screens/agent_details.dart';
 import 'package:haux/screens/auth_screen.dart';
 import 'package:haux/screens/detail_page.dart';
@@ -23,9 +23,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+      
       ChangeNotifierProvider(create: (context) => HauxInfo(),),
       ChangeNotifierProvider(create: (context) => HauxInfoProvider(),),
-      ChangeNotifierProvider(create: (context) => AgentInfoProvider(),),
+      ChangeNotifierProvider(create: (context) => LandLordInfoProvider(),),
          
       ],
       child: MaterialApp(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:haux/provider_state/info_provider.dart';
+import 'package:haux/provider_state/haux_info_provider.dart';
 import 'package:haux/screens/agent_details.dart';
 import 'package:provider/provider.dart';
 
@@ -69,7 +69,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                    textStyle: Theme.of(context).textTheme.bodyText1!
                                    .copyWith(fontWeight: FontWeight.w500,fontSize: 16, 
                                    color:const Color(0xff363B64)))),
-                             Text("View Agent's Profile", style: GoogleFonts.poppins(
+                             Text("View LandLord's Profile", style: GoogleFonts.poppins(
                                  textStyle: Theme.of(context).
                                  textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w400,fontSize: 12, color: const Color(0xff363B64)))),
                           ],

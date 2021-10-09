@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:haux/provider_state/info_provider.dart';
+import 'package:haux/provider_state/haux_info_provider.dart';
 import 'package:haux/widgets/vertical_list_item.dart';
 import 'package:provider/provider.dart';
 
