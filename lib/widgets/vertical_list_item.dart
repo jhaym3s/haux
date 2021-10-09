@@ -10,6 +10,7 @@ class VerticalListItem extends StatelessWidget {
     
   }) : super(key: key);
 
+  
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;

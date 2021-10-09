@@ -70,4 +70,8 @@ List<HauxInfo> get apartmentList{
 HauxInfo findById(String id){
       return _apartmentList.firstWhere((element) => id == element.id);
 }
+
+List<HauxInfo> get getFavourite{
+  return apartmentList.where((element) => element.isFavorite == true).toList();
+}
 }

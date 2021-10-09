@@ -66,6 +66,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         borderRadius:  BorderRadius.circular(22),
       ),
       child: TextFormField(
+        
         controller: controller,
         onSaved: (newValue) {
         //  authData![authDataString] = newValue;

@@ -26,5 +26,5 @@ this.agentId
 void toggleFavorite(){
   isFavorite = !isFavorite;
   notifyListeners();
-}
+ }
 }

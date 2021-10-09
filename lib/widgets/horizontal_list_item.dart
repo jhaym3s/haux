@@ -42,12 +42,6 @@ class HorizontalListItem extends StatelessWidget {
                          final snackBar = SnackBar(
             content:  Text(haux.isFavorite?"Added to favourite":"Removed from favourite"),
             duration:const Duration(seconds: 3),
-            action: SnackBarAction(
-              label: 'Undo',
-              onPressed: () {
-                
-              },
-            ),
           );
           Scaffold.of(context).removeCurrentSnackBar(reason: SnackBarClosedReason.swipe);
           ScaffoldMessenger.of(context).showSnackBar(snackBar);

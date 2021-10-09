@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:haux/provider_state/agent_info_provider.dart';
+import 'package:haux/provider_state/landlord_info_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -19,7 +19,7 @@ class _AgentDetailsState extends State<AgentDetails> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     final agentId = ModalRoute.of(context)!.settings.arguments as String;
-    final agentFiltered = Provider.of<AgentInfoProvider>(context).findById(agentId);
+    final agentFiltered = Provider.of<LandLordInfoProvider>(context).findById(agentId);
     return Scaffold(
       body: SafeArea(child: 
       Column(
@@ -41,13 +41,13 @@ class _AgentDetailsState extends State<AgentDetails> {
                           child: Row(children: [
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
-                                  child: InteractiveViewer(child: Image.asset(agentFiltered.agentImagePath!, height:74,width: 84,fit: BoxFit.cover,))),
+                                  child: InteractiveViewer(child: Image.asset(agentFiltered.landLordImage!, height:74,width: 84,fit: BoxFit.cover,))),
                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.only(left:8.0),
-                                        child: Text(agentFiltered.agentName!,style: GoogleFonts.poppins(
+                                        child: Text(agentFiltered.landLordName!,style: GoogleFonts.poppins(
                                                textStyle: Theme.of(context).textTheme.bodyText1!
                                                .copyWith(fontWeight: FontWeight.w500,fontSize: 16, 
                                                color:const Color(0xff363B64)))),
@@ -84,7 +84,7 @@ class _AgentDetailsState extends State<AgentDetails> {
                          child: Text("About me",style: GoogleFonts.poppins(
                                      textStyle: Theme.of(context).textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w500,fontSize: 14, color:const Color(0xff363B64)))),
                        ),
-                    Text(agentFiltered.agentDetails!,style: GoogleFonts.poppins(
+                    Text(agentFiltered.landLordDetails!,style: GoogleFonts.poppins(
                                    textStyle: Theme.of(context).textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w500,fontSize: 16, color:const Color(0xff363B64))),textAlign: TextAlign.start,),
                       
                     ],
