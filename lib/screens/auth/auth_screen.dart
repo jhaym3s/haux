@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:haux/screens/forgot_password.dart';
+import 'package:haux/screens/auth/forgot_password.dart';
 import 'package:haux/screens/screens.dart';
 import 'package:haux/widgets/custom_navigation_bar.dart';
 

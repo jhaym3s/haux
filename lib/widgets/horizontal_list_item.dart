@@ -40,7 +40,8 @@ class HorizontalListItem extends StatelessWidget {
                          return IconButton(onPressed: (){
                          haux.toggleFavorite();
                          final snackBar = SnackBar(
-            content:  Text(haux.isFavorite?"Added to favourite":"Removed from favourite"),
+                  content:  Text(haux.isFavorite?"${haux.lodgeName} added to favourite":
+                 "${haux.lodgeName} removed from favourite"),
             duration:const Duration(seconds: 3),
           );
           Scaffold.of(context).removeCurrentSnackBar(reason: SnackBarClosedReason.swipe);
@@ -67,11 +68,11 @@ class HorizontalListItem extends StatelessWidget {
                        children: [
                          Image.asset("assets/image/hometype.png",height: 20,width:20),
                         const Gap(4),
-                         Text(haux.apartmentType!,  style: GoogleFonts.poppins(
+                         Text(haux.category!,  style: GoogleFonts.poppins(
                            textStyle: Theme.of(context).textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w400,fontSize: 11, color:const Color(0xff363B64)))),
                        ],
                      ),
-                   Text("\$${300}/Year",  style: GoogleFonts.poppins(
+                   Text("\$${haux.price!.toStringAsFixed(2)}/Year",  style: GoogleFonts.poppins(
                           textStyle: Theme.of(context).textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w600,fontSize: 16, color:const Color(0xff363B64),))),
                    ],
                  ),

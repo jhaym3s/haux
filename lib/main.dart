@@ -3,10 +3,11 @@ import 'package:haux/provider_state/landlord_info_provider.dart';
 import 'package:haux/provider_state/haux_info.dart';
 import 'package:haux/provider_state/haux_info_provider.dart';
 import 'package:haux/screens/agent_details.dart';
-import 'package:haux/screens/auth_screen.dart';
+import 'package:haux/screens/auth/auth_screen.dart';
 import 'package:haux/screens/detail_page.dart';
 import 'package:haux/screens/filter_screen.dart';
-import 'package:haux/screens/forgot_password.dart';
+import 'package:haux/screens/auth/forgot_password.dart';
+import 'package:haux/screens/index_apartment.dart';
 import 'package:haux/screens/screens.dart';
 import 'package:haux/constants.dart';
 import 'package:haux/widgets/custom_navigation_bar.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
                   AgentDetails.routeName:(context) => const AgentDetails(),
                    AuthenticationScreen.routeName:(context) => const AuthenticationScreen(),
                    ForgotPasswordPage.routeName:(context) => const ForgotPasswordPage(),
+                   IndexApartment.routeName:(context) => const IndexApartment(),
         },
       ),
     );

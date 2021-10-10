@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TopScroll extends StatelessWidget {
-  const TopScroll({ Key? key }) : super(key: key);
+   TopScroll({ Key? key }) : super(key: key);
+
+  final List apartmentType = [];
 
   @override
   Widget build(BuildContext context) {

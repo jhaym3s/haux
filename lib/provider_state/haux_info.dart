@@ -1,8 +1,17 @@
 
 import 'package:flutter/material.dart';
 
+
+enum category{
+  selfcon,
+  oneRoom,
+  twoRooms,
+  threeRooms,
+  singleRoom,
+}
+
 class HauxInfo with ChangeNotifier{
-final String? lodgeName,agentImagePath,apartmentType,location,description,agentName,id,imagePath, agentId;
+final String? lodgeName,agentImagePath,category,location,description,agentName,id,imagePath, agentId;
 final double? price;
 bool isFavorite;
 final List<String>? otherImages;
@@ -10,7 +19,7 @@ final List<String>? otherImages;
 
 HauxInfo({
 this.lodgeName, 
-this.apartmentType, 
+this.category, 
 this.location, 
 this.description, 
 this.isFavorite = false,

@@ -34,7 +34,7 @@ class VerticalListItem extends StatelessWidget {
                      children: [
                         Image.asset("assets/image/hometype.png",),
                         const Gap(4),
-                      Text(hauxInfo.apartmentType!,  style: GoogleFonts.poppins(
+                      Text(hauxInfo.category!,  style: GoogleFonts.poppins(
        textStyle: Theme.of(context).textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w500,
        fontSize: 12, color:const Color(0xff363B64)))), 
                      ]
