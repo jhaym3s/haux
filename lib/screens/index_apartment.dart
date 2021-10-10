@@ -14,17 +14,18 @@ class IndexApartment extends StatefulWidget {
 }
 
 class _IndexApartmentState extends State<IndexApartment> {
-List<HauxInfo>? switchStatement(BuildContext context){
-    switch(widget.apartmentTypeChoosen){
-      case "All Apartment": {
-        return Provider.of<HauxInfoProvider>(context).apartmentList;
-      }
-
+  List<HauxInfo>? switchStatement(BuildContext context) {
+    switch (widget.apartmentTypeChoosen) {
+      case "All Apartment":
+        {
+          return Provider.of<HauxInfoProvider>(context).apartmentList;
+        }
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final products = switchStatement(context);
     return const Scaffold();
   }
 }
